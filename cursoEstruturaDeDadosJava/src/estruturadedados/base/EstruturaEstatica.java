@@ -1,7 +1,7 @@
 package estruturadedados.base;
 public class EstruturaEstatica<T> {
-    private T[] elementos;
-    private int tamanho;
+    protected T[] elementos;
+    protected int tamanho;
     
     public EstruturaEstatica(int capacidade) {
         this.elementos = (T[])new Object[capacidade]; //casting para o tipo que precisamos
@@ -37,7 +37,7 @@ public class EstruturaEstatica<T> {
 
     }
     
-    private void aumentarCapacidade() {
+    protected void aumentarCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = (T[])new Object[this.elementos.length * 2];
             for (int i = 0; i < this.elementos.length; i++) {
@@ -49,6 +49,10 @@ public class EstruturaEstatica<T> {
     
     public int tamanho() {
         return this.tamanho;
+    }
+    
+    public boolean estaVazia(){
+        return this.tamanho == 0;
     }
     
     @Override
